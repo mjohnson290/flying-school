@@ -18,7 +18,6 @@ new Vue({
         };
       });
   },
-
   filters: {
     currencydecimal (value) {
       return '$' + value
