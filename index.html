@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Aceable Piloting</title>
+        <link rel="icon" href="https://3h308wkqnxzfmr3r2xse3b16-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/aceable-favicon-150x150.png" sizes="32x32" />
+        <link rel="icon" href="https://3h308wkqnxzfmr3r2xse3b16-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/aceable-favicon-300x300.png" sizes="192x192" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="styles/main.css" />
+        
+    </head>
+    <body>
+        <div id="app">
+            <div class="page-header">
+                <h1>Aceable Piloting <small>#beFreeLikeABird</small></h1>
+            </div>
+            <div v-if="errorMessage">
+                <div class="error-header">
+                    {{errorMessage.header}}
+                </div>
+                <div class="error-body">
+                    {{errorMessage.body}}
+                </div>
+                <button class="toggle-connection">Restore the Connection</button>
+            </div>
+            <div v-if="!errorMessage" class="row col-sm-10">
+                <div
+                    v-for="product in products"
+                    :key="product.price"
+                    class="product-container col-lg-6 col-md-12 row-eq-height"
+                >
+                    <div class="product" v-bind:id="'product-' + product.state + product.id">
+                        <div class="title">
+                            {{product.title}}
+                        </div>
+                        <div class="price">
+                            {{product.price | currencydecimal}}
+                        </div>
+                        <div class="description">
+                            {{product.description}}
+                        </div>
+                        <button class="cta-button">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>
